@@ -1,0 +1,12 @@
+{
+  "name": "wiiu-serve",
+  "version": "1.0.0",
+  "description": "Image server for Wii U",
+  "main": "index.js",
+  "author": "Josh Beard",
+  "license": "MIT",
+  "dependencies": {
+    "@fastify/static": "^5.0.2",
+    "fastify": "^3.29.0"
+  }
+}

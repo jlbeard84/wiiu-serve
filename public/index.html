@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Wii U Serve</title>
+    </head>
+    <body>
+        <script src="https://unpkg.com/mithril/mithril.js"></script>
+        <script>
+        var root = document.body
+        let imageView;
+
+        var getImages = function() {
+            m.request({
+                method: "GET",
+                url: "/api/img",
+            })
+            .then(function(data) {
+                let imageDiv = [];
+
+                for(const img of data) {
+                    imageDiv.push(m("img", { src: img.displayPath }));
+                }
+
+                imageView = {
+                    view: function() {
+                        return m("main", [
+                            m("div", { class:"img-container" } , imageDiv)
+                        ]);
+                    }
+                }
+
+                m.mount(root, imageView);
+            });
+        }
+
+        getImages();
+
+        </script>
+    </body>
+</html>
